@@ -1,0 +1,49 @@
+<html>
+
+<!--
+Fíate de Jehová de todo tu corazón,
+Y no te apoyes en tu propia prudencia.
+Reconócelo en todos tus caminos,
+Y él enderezará tus veredas.
+
+Proverbios 3: 5-6
+-->
+
+  <head>
+    <title> Control de Usuarios </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="/javascripts/angularApp.js"></script>
+  </head>
+  <body ng-app="controlUsuarios" ng-controller="Controlador">
+    <div>
+      <h1> {{titulo}} </h1>
+    </div>
+
+	<table border='1'>
+		<tr>
+			<th> Nombre </th>
+			<th> Apellidos </th>
+			<th> Profesion </th>
+			<th> Opciones </th>
+		</tr>
+		<tr ng-repeat= 'i in usuarios | orderBy: "nombre"'>
+			<td> {{ i.nombre }} </td>
+			<td> {{ i.apellidos }} </td>
+			<td> {{ i.profesion }} </td>
+			<td> Modificar - Eliminar </td>
+		</tr>
+	</table>
+	
+	<form ng-submit='agregarUsuario()'>
+		
+		<h3> Forma para agregar un nuevo usuario </h3>
+	
+		Nombre: <input type="text" ng-model="nombre"> <br>
+		Apellidos: <input type="text" ng-model="apellidos"> <br>
+		Profesion: <input type="text" ng-model="profesion"> <br>
+		
+		<button type='submit'> Agregar Usuario </button>
+	</form>
+	
+  </body>
+</html>
